@@ -598,14 +598,14 @@ function PricingPage({ navigate }) {
   const [region, setRegion] = useState("india");
   const plans = {
     india: [
-      { name: "Starter", setup: "₹1,00,000", mo: "₹10,000/mo", desc: "For businesses getting started with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar booking", "WhatsApp chat", "Basic dashboard", "Email support"] },
-      { name: "Growth", setup: "₹1,25,000", mo: "₹15,000/mo", desc: "Outbound calls, follow-ups, and voice dashboard.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp + location sharing", "Reminder & follow-up calls", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
-      { name: "Enterprise", setup: "₹1,50,000", mo: "₹20,000/mo", desc: "For large operations with custom needs.", features: ["Unlimited agents", "All channels", "40+ languages + any custom", "Custom integrations", "Multi-project support", "Full voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
+      { name: "Starter", setup: "₹2,00,000", mo: "₹30,000/mo", desc: "For businesses getting started with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar booking", "WhatsApp chat", "Basic dashboard", "Email support"] },
+      { name: "Growth", setup: "₹3,50,000", mo: "₹55,000/mo", desc: "Outbound calls, follow-ups, and voice dashboard.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp + location sharing", "Reminder & follow-up calls", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
+      { name: "Enterprise", setup: null, mo: null, desc: "For large operations with custom requirements.", custom: true, features: ["Unlimited agents", "All channels", "40+ languages + any custom", "Custom integrations", "Multi-project support", "Full voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
     ],
     dubai: [
-      { name: "Starter", setup: "AED 5,000", mo: "AED 2,000/mo", desc: "Enter the UAE market with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar", "DNCR compliance", "Email support"] },
-      { name: "Growth", setup: "AED 7,500", mo: "AED 3,500/mo", desc: "Multi-channel AI for the Dubai market.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp integration", "DNCR compliance", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
-      { name: "Enterprise", setup: "AED 10,000", mo: "AED 5,000/mo", desc: "Full-featured solution for large firms.", features: ["Unlimited agents", "All channels", "40+ languages + any custom", "DNCR compliance", "Custom integrations", "Voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
+      { name: "Starter", setup: "AED 8,000", mo: "AED 3,000/mo", desc: "Enter the UAE market with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar", "DNCR compliance", "Email support"] },
+      { name: "Growth", setup: "AED 14,000", mo: "AED 5,500/mo", desc: "Multi-channel AI for the Dubai market.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp integration", "DNCR compliance", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
+      { name: "Enterprise", setup: null, mo: null, desc: "For large operations with custom requirements.", custom: true, features: ["Unlimited agents", "All channels", "40+ languages + any custom", "DNCR compliance", "Custom integrations", "Voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
     ],
   };
 
@@ -625,14 +625,40 @@ function PricingPage({ navigate }) {
             {p.pop && <div style={{ position: "absolute", top: -11, left: "50%", transform: "translateX(-50%)", background: `linear-gradient(135deg, ${T.color.accent}, ${T.color.accentDark})`, padding: "4px 14px", borderRadius: 100, fontFamily: T.font.mono, fontSize: 11, fontWeight: 700, color: "#fff" }}>POPULAR</div>}
             <h3 style={{ fontFamily: T.font.display, fontWeight: 700, fontSize: 22, color: "#fff", marginBottom: 6 }}>{p.name}</h3>
             <p style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textFaint, marginBottom: 18, lineHeight: 1.5 }}>{p.desc}</p>
-            <div style={{ marginBottom: 4 }}><span style={{ fontFamily: T.font.display, fontWeight: 800, fontSize: 28, color: "#fff" }}>{p.setup}</span><span style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textFaint }}> one-time</span></div>
-            <div style={{ marginBottom: 22 }}><span style={{ fontFamily: T.font.display, fontWeight: 700, fontSize: 19, color: T.color.accent }}>{p.mo}</span></div>
+
+            {p.custom ? (
+              <div style={{ marginBottom: 22 }}>
+                <span style={{ fontFamily: T.font.display, fontWeight: 800, fontSize: 26, color: "#fff" }}>Custom Quote</span>
+                <p style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textMuted, marginTop: 6, lineHeight: 1.5 }}>Tailored pricing based on your specific requirements, scale, and integrations.</p>
+              </div>
+            ) : (
+              <>
+                <div style={{ marginBottom: 4 }}><span style={{ fontFamily: T.font.display, fontWeight: 800, fontSize: 28, color: "#fff" }}>{p.setup}</span><span style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textFaint }}> one-time</span></div>
+                <div style={{ marginBottom: 22 }}><span style={{ fontFamily: T.font.display, fontWeight: 700, fontSize: 19, color: T.color.accent }}>{p.mo}</span></div>
+              </>
+            )}
+
             <div style={{ borderTop: `1px solid ${T.color.border}`, paddingTop: 14, marginBottom: 18 }}>
               {p.features.map(f => <div key={f} style={{ display: "flex", gap: 8, padding: "4px 0" }}><span style={{ color: T.color.accent, fontFamily: T.font.mono, fontSize: 12 }}>✓</span><span style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textMuted }}>{f}</span></div>)}
             </div>
-            <Btn v={p.pop ? "primary" : "secondary"} onClick={() => navigate("/contact")} style={{ width: "100%", textAlign: "center" }}>Get Started</Btn>
+            <Btn v={p.pop ? "primary" : "secondary"} onClick={() => navigate("/contact")} style={{ width: "100%", textAlign: "center" }}>{p.custom ? "Contact Sales" : "Get Started"}</Btn>
           </div>
         ))}
+      </div>
+
+      {/* Pricing Disclaimer */}
+      <div style={{ maxWidth: 1020, margin: "32px auto 0" }}>
+        <div style={{ padding: "20px 24px", borderRadius: 12, background: "rgba(255,255,255,0.02)", border: `1px solid ${T.color.border}` }}>
+          <div style={{ display: "flex", gap: 10, alignItems: "start" }}>
+            <span style={{ color: T.color.accent, fontSize: 16, marginTop: 1 }}>ℹ️</span>
+            <div>
+              <h4 style={{ fontFamily: T.font.display, fontWeight: 700, fontSize: 14, color: "rgba(255,255,255,0.7)", marginBottom: 6 }}>Pricing Disclaimer</h4>
+              <p style={{ fontFamily: T.font.body, fontSize: 13, color: T.color.textFaint, lineHeight: 1.7 }}>
+                The prices listed above are indicative starting points. Final pricing may vary based on your specific requirements, integrations, number of agents, call volume, and custom configurations identified during our discovery process. After you fill out the discovery document, our team will provide a detailed, tailored quote that reflects the complete scope of your project.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -726,10 +752,10 @@ function ContactPage() {
       if (res.ok) {
         setDone(true);
       } else {
-        setError("Something went wrong. Please email us at hello@magmaai.io");
+        setError("Something went wrong. Please email us at hello@magma-ai.com");
       }
     } catch (err) {
-      setError("Connection error. Please email us at hello@magmaai.io");
+      setError("Connection error. Please email us at hello@magma-ai.com");
     }
     setSending(false);
   };
@@ -761,7 +787,7 @@ function ContactPage() {
           </div>
           <div style={{ marginTop: 28, padding: "14px 18px", background: T.color.surface, borderRadius: 12, border: `1px solid ${T.color.border}` }}>
             <div style={{ fontFamily: T.font.body, fontSize: 11, color: T.color.textFaint, marginBottom: 4 }}>Or email us</div>
-            <div style={{ fontFamily: T.font.body, fontSize: 15, color: "#fff" }}>hello@magmaai.io</div>
+            <div style={{ fontFamily: T.font.body, fontSize: 15, color: "#fff" }}>hello@magma-ai.com</div>
           </div>
         </div>
         <Card hover={false} style={{ padding: "28px 24px" }}>
@@ -791,7 +817,7 @@ function WhatsAppButton() {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   // ─── SETUP: Replace with your WhatsApp number (with country code, no spaces/dashes) ───
-  const WHATSAPP_NUMBER = "919599216212"; // e.g., 919599216212 for +91 9599216212
+  const WHATSAPP_NUMBER = "919876543210"; // e.g., 919876543210 for +91 98765 43210
   const PREFILLED_MESSAGE = "Hi! I'm interested in Magma AI. Can I get a quick demo?";
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`;
