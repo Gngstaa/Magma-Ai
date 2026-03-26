@@ -143,7 +143,7 @@ function LeadFlowChart() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const steps = [
-    { id: 0, icon: "📥", label: "Lead Comes In", sub: "WhatsApp message or phone call", color: "#3B82F6", detail: "A potential customer reaches out via WhatsApp, phone call, or missed call. Magma picks up instantly — no waiting, no IVR menus, no hold music. Available 24/7 in 10+ languages.", side: "left" },
+    { id: 0, icon: "📥", label: "Lead Comes In", sub: "WhatsApp message or phone call", color: "#3B82F6", detail: "A potential customer reaches out via WhatsApp, phone call, or missed call. Magma picks up instantly — no waiting, no IVR menus, no hold music. Available 24/7 in 40+ languages — and customizable in any language you need.", side: "left" },
     { id: 1, icon: "🤖", label: "AI Handles the Query", sub: "Qualifies, answers questions, handles objections", color: "#8B5CF6", detail: "Magma understands the enquiry, asks qualifying questions (budget, preferences, timeline), answers FAQs, and handles objections — all in the customer's language. Not scripted — truly conversational.", side: "right" },
     { id: 2, icon: "📋", label: "Lead Forwarded to Agent", sub: "Hot lead routed to the assigned salesperson", color: "#EC4899", detail: "Qualified leads are instantly forwarded to the assigned agent with the complete conversation transcript, qualification score, and customer preferences. The agent knows everything before saying hello.", side: "left" },
     { id: 3, icon: "📅", label: "Appointment Booked", sub: "Google Calendar event created automatically", color: "#F59E0B", detail: "Magma checks the agent's real-time calendar availability, books the appointment, and creates a Google Calendar event for both parties. Time, date, attendees — all handled automatically.", side: "right" },
@@ -438,7 +438,7 @@ function HomePage({ navigate }) {
           {[
             { icon: "📦", title: "We Configure & Ship", desc: "Tell us your business. We build your AI agent on OpenClaw's proven platform, load it onto a dedicated Mac Mini, and ship it to you. Zero technical knowledge needed." },
             { icon: "🔌", title: "You Plug In", desc: "Connect the Mac Mini to power and internet. That's literally all the setup. Your AI employee starts working immediately." },
-            { icon: "🌐", title: "10+ Languages", desc: "Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Malayalam, Punjabi, Arabic — your AI speaks your customer's language." },
+            { icon: "🌐", title: "40+ Languages & Counting", desc: "Hindi, Tamil, Telugu, Kannada, Arabic, Spanish, French, Mandarin — and any language you need. We'll configure your AI to speak your customer's language, no matter what it is." },
           ].map(c => <Card key={c.title}><span style={{ fontSize: 30, marginBottom: 14, display: "block" }}>{c.icon}</span><h3 style={{ fontFamily: T.font.display, fontWeight: 700, fontSize: 17, color: "#fff", marginBottom: 8 }}>{c.title}</h3><p style={{ fontFamily: T.font.body, fontSize: 14, color: T.color.textMuted, lineHeight: 1.7 }}>{c.desc}</p></Card>)}
         </div>
       </section>
@@ -513,7 +513,7 @@ function FeaturesPage({ navigate }) {
           { cat: "Intelligence", features: [
             { icon: "🗣️", title: "Voice-Powered Dashboard", desc: "Ask anything by voice — lead status, daily summary, pipeline. Magma speaks the answer." },
             { icon: "🛡️", title: "Objection Handling", desc: "Trained on your industry-specific objections. Handles pricing, timing, and competitor comparisons." },
-            { icon: "🌐", title: "10+ Languages", desc: "Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati, Malayalam, Punjabi, Arabic, English." },
+            { icon: "🌐", title: "40+ Languages, Any Custom", desc: "Hindi, Tamil, Telugu, Kannada, Bengali, Arabic, English, and 35+ more out of the box. Need a language we don't have? We'll add it. Your AI speaks whatever your customers speak." },
             { icon: "📊", title: "Analytics & Reporting", desc: "Lead volume, qualification rates, conversion funnels, agent performance, and AI confidence scores." },
           ]},
         ].map(section => (
@@ -598,14 +598,14 @@ function PricingPage({ navigate }) {
   const [region, setRegion] = useState("india");
   const plans = {
     india: [
-      { name: "Starter", setup: "₹1,00,000", mo: "₹10,000/mo", desc: "For businesses getting started with AI voice.", features: ["1 AI voice agent", "Inbound calls", "2 languages", "Google Calendar booking", "WhatsApp chat", "Basic dashboard", "Email support"] },
-      { name: "Growth", setup: "₹1,25,000", mo: "₹15,000/mo", desc: "Outbound calls, follow-ups, and voice dashboard.", features: ["2 AI agents", "Inbound + Outbound", "5 languages", "WhatsApp + location sharing", "Reminder & follow-up calls", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
-      { name: "Enterprise", setup: "₹1,50,000", mo: "₹20,000/mo", desc: "For large operations with custom needs.", features: ["Unlimited agents", "All channels", "10+ languages", "Custom integrations", "Multi-project support", "Full voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
+      { name: "Starter", setup: "₹1,00,000", mo: "₹10,000/mo", desc: "For businesses getting started with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar booking", "WhatsApp chat", "Basic dashboard", "Email support"] },
+      { name: "Growth", setup: "₹1,25,000", mo: "₹15,000/mo", desc: "Outbound calls, follow-ups, and voice dashboard.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp + location sharing", "Reminder & follow-up calls", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
+      { name: "Enterprise", setup: "₹1,50,000", mo: "₹20,000/mo", desc: "For large operations with custom needs.", features: ["Unlimited agents", "All channels", "40+ languages + any custom", "Custom integrations", "Multi-project support", "Full voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
     ],
     dubai: [
-      { name: "Starter", setup: "AED 5,000", mo: "AED 2,000/mo", desc: "Enter the UAE market with AI voice.", features: ["1 AI voice agent", "Inbound calls", "English + Arabic", "Google Calendar", "DNCR compliance", "Email support"] },
-      { name: "Growth", setup: "AED 7,500", mo: "AED 3,500/mo", desc: "Multi-channel AI for the Dubai market.", features: ["2 AI agents", "Inbound + Outbound", "English + Arabic + Hindi", "WhatsApp integration", "DNCR compliance", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
-      { name: "Enterprise", setup: "AED 10,000", mo: "AED 5,000/mo", desc: "Full-featured solution for large firms.", features: ["Unlimited agents", "All channels", "All languages", "DNCR compliance", "Custom integrations", "Voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
+      { name: "Starter", setup: "AED 5,000", mo: "AED 2,000/mo", desc: "Enter the UAE market with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar", "DNCR compliance", "Email support"] },
+      { name: "Growth", setup: "AED 7,500", mo: "AED 3,500/mo", desc: "Multi-channel AI for the Dubai market.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp integration", "DNCR compliance", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
+      { name: "Enterprise", setup: "AED 10,000", mo: "AED 5,000/mo", desc: "Full-featured solution for large firms.", features: ["Unlimited agents", "All channels", "40+ languages + any custom", "DNCR compliance", "Custom integrations", "Voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
     ],
   };
 
@@ -690,8 +690,49 @@ function AboutPage({ navigate }) {
 function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", industry: "", message: "" });
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const upd = (k, v) => setForm({ ...form, [k]: v });
   const inpS = { width: "100%", padding: "12px 14px", borderRadius: 10, background: "rgba(255,255,255,0.04)", border: `1px solid ${T.color.border}`, color: "#fff", fontFamily: T.font.body, fontSize: 15, outline: "none", transition: "border-color 0.3s", boxSizing: "border-box" };
+
+  // ─── SETUP: Replace YOUR_FORM_ID with your Formspree form ID ───
+  // 1. Go to https://formspree.io and sign up (free)
+  // 2. Click "New Form", name it "Magma Demo Requests"
+  // 3. Copy the form ID (looks like "xwpkgjqn")
+  // 4. Replace YOUR_FORM_ID below with your actual ID
+  const FORMSPREE_ID = "YOUR_FORM_ID";
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email || !form.phone) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+    setError("");
+    setSending(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          industry: form.industry,
+          message: form.message,
+          _subject: `New Demo Request from ${form.name} — ${form.industry || "No industry selected"}`,
+        }),
+      });
+      if (res.ok) {
+        setDone(true);
+      } else {
+        setError("Something went wrong. Please email us at hello@magma-ai.com");
+      }
+    } catch (err) {
+      setError("Connection error. Please email us at hello@magma-ai.com");
+    }
+    setSending(false);
+  };
 
   if (done) return (
     <div style={{ paddingTop: 100, padding: "160px clamp(16px,4vw,40px)", textAlign: "center" }}>
@@ -730,7 +771,8 @@ function ContactPage() {
             ))}
             <div><label style={{ display: "block", fontFamily: T.font.body, fontSize: 12, color: T.color.textFaint, fontWeight: 600, marginBottom: 4 }}>Industry</label><select value={form.industry} onChange={e => upd("industry", e.target.value)} style={{ ...inpS, appearance: "none" }}><option value="" style={{ background: "#12131a" }}>Select your industry</option>{["Real Estate","Hospital / Clinic","Dental Clinic","Salon / Spa","Elevator Company","Grocery / Retail","Gym / Fitness","Auto Dealer","Other"].map(o => <option key={o} value={o} style={{ background: "#12131a" }}>{o}</option>)}</select></div>
             <div><label style={{ display: "block", fontFamily: T.font.body, fontSize: 12, color: T.color.textFaint, fontWeight: 600, marginBottom: 4 }}>Message</label><textarea value={form.message} onChange={e => upd("message", e.target.value)} placeholder="Tell us about your needs..." style={{ ...inpS, minHeight: 70, resize: "vertical" }} onFocus={e => e.target.style.borderColor = T.color.borderHover} onBlur={e => e.target.style.borderColor = T.color.border} /></div>
-            <Btn onClick={() => { if (form.name && form.email && form.phone) setDone(true); }} style={{ width: "100%", textAlign: "center" }}>Request Demo</Btn>
+            <Btn onClick={handleSubmit} style={{ width: "100%", textAlign: "center", opacity: sending ? 0.6 : 1, pointerEvents: sending ? "none" : "auto" }}>{sending ? "Sending..." : "Request Demo"}</Btn>
+            {error && <p style={{ fontFamily: T.font.body, fontSize: 12, color: T.color.red, textAlign: "center" }}>{error}</p>}
             <p style={{ fontFamily: T.font.body, fontSize: 11, color: T.color.textFaint, textAlign: "center" }}>We respond within 24 hours. No spam.</p>
           </div>
         </Card>
