@@ -726,10 +726,10 @@ function ContactPage() {
       if (res.ok) {
         setDone(true);
       } else {
-        setError("Something went wrong. Please email us at hello@magma-ai.com");
+        setError("Something went wrong. Please email us at hello@magmaai.io");
       }
     } catch (err) {
-      setError("Connection error. Please email us at hello@magma-ai.com");
+      setError("Connection error. Please email us at hello@magmaai.io");
     }
     setSending(false);
   };
@@ -761,7 +761,7 @@ function ContactPage() {
           </div>
           <div style={{ marginTop: 28, padding: "14px 18px", background: T.color.surface, borderRadius: 12, border: `1px solid ${T.color.border}` }}>
             <div style={{ fontFamily: T.font.body, fontSize: 11, color: T.color.textFaint, marginBottom: 4 }}>Or email us</div>
-            <div style={{ fontFamily: T.font.body, fontSize: 15, color: "#fff" }}>hello@magma-ai.com</div>
+            <div style={{ fontFamily: T.font.body, fontSize: 15, color: "#fff" }}>hello@magmaai.io</div>
           </div>
         </div>
         <Card hover={false} style={{ padding: "28px 24px" }}>
