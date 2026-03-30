@@ -607,6 +607,11 @@ function PricingPage({ navigate }) {
       { name: "Growth", setup: "AED 14,000", mo: "AED 5,500/mo", desc: "Multi-channel AI for the Dubai market.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp integration", "DNCR compliance", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
       { name: "Enterprise", setup: null, mo: null, desc: "For large operations with custom requirements.", custom: true, features: ["Unlimited agents", "All channels", "40+ languages + any custom", "DNCR compliance", "Custom integrations", "Voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
     ],
+    global: [
+      { name: "Starter", setup: "$5,000", mo: "$2,000/mo", desc: "For businesses getting started with AI voice.", features: ["1 AI voice agent", "Inbound calls", "Up to 5 languages", "Google Calendar booking", "WhatsApp chat", "Basic dashboard", "Email support"] },
+      { name: "Growth", setup: "$9,000", mo: "$4,000/mo", desc: "Outbound calls, follow-ups, and voice dashboard.", features: ["2 AI agents", "Inbound + Outbound", "Up to 15 languages", "WhatsApp + location sharing", "Reminder & follow-up calls", "Objection handling", "Voice dashboard", "Priority support"], pop: true },
+      { name: "Enterprise", setup: null, mo: null, desc: "For large operations with custom requirements.", custom: true, features: ["Unlimited agents", "All channels", "40+ languages + any custom", "Custom integrations", "Multi-project support", "Full voice dashboard", "Dedicated manager", "SLA guarantee", "API access"] },
+    ],
   };
 
   return (
@@ -614,7 +619,7 @@ function PricingPage({ navigate }) {
       <Heading eyebrow="Pricing" title="Hardware + Setup + Monthly Support" sub="One-time fee for your pre-configured Mac Mini and setup. Monthly fee for ongoing AI maintenance, updates, and support." />
       <div style={{ display: "flex", justifyContent: "center", marginBottom: 40 }}>
         <div style={{ display: "inline-flex", background: T.color.surface, border: `1px solid ${T.color.border}`, borderRadius: 10, padding: 3 }}>
-          {[["india","🇮🇳 India"],["dubai","🇦🇪 Dubai"]].map(([k,l]) => (
+          {[["india","🇮🇳 India"],["dubai","🇦🇪 Dubai"],["global","🌎 USD"]].map(([k,l]) => (
             <button key={k} onClick={() => setRegion(k)} style={{ background: region === k ? T.color.accentGlow : "transparent", border: region === k ? `1px solid ${T.color.borderHover}` : "1px solid transparent", color: region === k ? T.color.accent : T.color.textMuted, borderRadius: 8, padding: "9px 22px", fontFamily: T.font.body, fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>{l}</button>
           ))}
         </div>
