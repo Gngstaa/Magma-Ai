@@ -8,7 +8,7 @@ const routeMap = {
 };
 function useRouter() {
   const [path, setPath] = useState("/");
-  const navigate = (to) => { setPath(to); window.scrollTo({ top: 0, behavior: "instant" }); };
+  const navigate = (to) => { setPath(to); try { window.scrollTo({ top: 0 }); } catch(e) {} };
   return { path, navigate, page: routeMap[path] || "home" };
 }
 
